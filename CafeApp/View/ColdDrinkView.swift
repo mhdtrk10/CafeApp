@@ -1,25 +1,23 @@
 //
-//  HotDrinkView.swift
+//  ColdDrinkView.swift
 //  CafeApp
 //
-//  Created by Mehdi Oturak on 10.12.2024.
+//  Created by Mehdi Oturak on 26.12.2024.
 //
 
 import SwiftUI
 
-struct HotDrinkView: View {
-    
+struct ColdDrinkView: View {
     
     @EnvironmentObject var cartManager : CartManager
     @StateObject  var vm = ProductViewModel()
-    
     
     
     var body: some View {
         NavigationView {
             ScrollView {
                 LazyVStack(alignment: .center, spacing: 20) {
-                    ForEach($vm.products, id: \.self) { $product in
+                    ForEach($vm.coldProducts, id: \.self) { $product in
                         VStack {
                             Image(product.imageName)
                                 .padding()
@@ -62,18 +60,8 @@ struct HotDrinkView: View {
             }
         }
     }
-    func groupedProducts() -> [[Product]] {
-        stride(from: 0, to: vm.products.count, by: 2).map { index in
-            Array(vm.products[index..<min(index + 2, vm.products.count)])
-                }
-    }
 }
 
-
-
 #Preview {
-    HotDrinkView()
-        
-        
-        
+    ColdDrinkView()
 }

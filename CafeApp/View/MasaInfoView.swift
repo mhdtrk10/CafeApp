@@ -14,7 +14,7 @@ struct MasaInfoView: View {
     
     @StateObject var dm = DataModel()
     
-    @ObservedObject var cartManager: CartManager
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         VStack {

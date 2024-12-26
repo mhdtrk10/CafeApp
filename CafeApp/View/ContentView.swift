@@ -12,7 +12,7 @@ import CoreData
 
 
 struct ContentView: View {
-    @ObservedObject  var cartManager = CartManager() 
+    
 
     var body: some View {
         
@@ -33,7 +33,7 @@ struct ContentView: View {
                     .background(Color(.purple))
                     .cornerRadius(5)
                     
-                    NavigationLink(destination: HotDrinkView()) {
+                    NavigationLink(destination: ColdDrinkView()) {
                         Text("Soğuk İçecekler")
                     }
                     .padding(10)
@@ -41,7 +41,7 @@ struct ContentView: View {
                     .frame(width: 150, height: 40)
                     .background(Color(.purple))
                     .cornerRadius(5)
-                    NavigationLink(destination: HotDrinkView()) {
+                    NavigationLink(destination: TatlilarView()) {
                         Text("Tatlılar")
                     }
                     .padding(10)

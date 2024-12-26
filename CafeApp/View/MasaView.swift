@@ -11,7 +11,7 @@ struct MasaView: View {
     
     let masalar = [1,2,3,4,5]
     
-    @ObservedObject var cartManager = CartManager()
+    @EnvironmentObject var cartManager : CartManager
     @State private var navigateToDetail: Bool = false
     
     
@@ -52,6 +52,9 @@ struct MasaView: View {
                                 cartManager.gecici = 5
                                 cartManager.masaItems5.merge(cartManager.cartItems) {_, new in new }
                             }
+                            
+                            cartManager.cartItems.removeAll()
+                            
                         }
                         .padding(10)
                         .foregroundColor(Color(.white))
@@ -91,7 +94,7 @@ struct MasaView: View {
                         .cornerRadius(5)
                         
                         NavigationLink(
-                            destination: MasaInfoView(cartManager: cartManager),
+                            destination: MasaInfoView(),
                             isActive: $navigateToDetail
                         ) {
                             

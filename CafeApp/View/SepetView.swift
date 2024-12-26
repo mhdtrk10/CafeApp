@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SepetView: View {
-    @ObservedObject var cartManager: CartManager
+    @EnvironmentObject var cartManager: CartManager
     
     var body: some View {
         VStack {
@@ -35,7 +35,7 @@ struct SepetView: View {
                 Text("Toplam: \(cartManager.cartItems.reduce(0) { $0 + $1.value * $1.key.price}) TL")
                     .font(.headline)
                     .padding()
-                NavigationLink("Masaya Aktar", destination: MasaView(cartManager: cartManager))
+                NavigationLink("Masaya Aktar", destination: MasaView())
                 .padding(10)
                 .foregroundColor(Color(.white))
                 .frame(width: 150 , height: 45)
